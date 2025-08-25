@@ -26,6 +26,7 @@ const app = express();
 const bot = new Bot(TOKEN);
 
 app.use(express.json());
+bot.init();
 
 // Commands menu
 bot.api.setMyCommands([
