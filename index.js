@@ -26,7 +26,6 @@ const app = express();
 const bot = new Bot(TOKEN);
 
 app.use(express.json());
-bot.init();
 
 // Commands menu
 bot.api.setMyCommands([
@@ -120,6 +119,7 @@ if (process.env.MODE === 'production') {
   });
 
   app.listen(3000, async () => {
+    bot.init();
     console.log('Server running on port 3000');
     await bot.api.setWebhook(process.env.WEBHOOK_URL + '/webhook');
   });
