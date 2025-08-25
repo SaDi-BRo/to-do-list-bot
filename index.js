@@ -114,13 +114,13 @@ bot.on('message:text', async ctx => {
 
 // Start bot
 if (process.env.MODE === 'production') {
-  app.post('webhook', async (req, res) => {
+  app.post('/webhook', async (req, res) => {
     await bot.handleUpdate(req.body, res);
   });
 
   app.listen(3000, async () => {
     console.log('Server running on port 3000');
-    await bot.api.setWebhook(`${process.env.WEBHOOK_URL}`);
+    await bot.api.setWebhook(process.env.WEBHOOK_URL);
   });
 } else {
   bot.start({
