@@ -120,7 +120,7 @@ if (process.env.MODE === 'production') {
 
   app.listen(3000, async () => {
     console.log('Server running on port 3000');
-    await bot.api.setWebhook(process.env.WEBHOOK_URL);
+    await bot.api.setWebhook(process.env.WEBHOOK_URL + '/webhook');
   });
 } else {
   bot.start({
